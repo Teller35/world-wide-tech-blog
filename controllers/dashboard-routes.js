@@ -1,7 +1,8 @@
 const  router = require('express').Router();
 const { Blog, User, Comment } = require('../models');
+const authorization = require('../utils/auth');
 
-router.get('/', (req, res) => {
+router.get('/', authorization, (req, res) => {
     Blog.findAll({
         attributes: ['id', 'title', 'blog_text','created_at'],
         order: [['created_at', 'ASC']],
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
       })
         .then(dbBlogData => {
             const blogs = dbBlogData.map(blog => blog.get({ plain: true }));
-            res.render('dashboard', { blogs });
+            res.render('dashboard', { blogs, loggedIn: true });
         })
         .catch((err) => {
           console.log(err);

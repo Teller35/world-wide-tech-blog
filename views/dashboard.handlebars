@@ -24,5 +24,22 @@
     </button>
   </form>
 </section>
+{{#if blogs.length}}
+<section>
+  <h2>Your Blogs</h2>
+  <ol>
+    {{#each blogs as |blog|}}
+    <li>
+        <div>
+            {{blog.title}}:
+        </div>
+        <div>
+            {{blog.blog_text}}
+        </div>
+    </li>
+    {{/each}}
+</ol>
+</section>
+{{/if}}
 <script src="/javascript/new-blog.js"></script>
 

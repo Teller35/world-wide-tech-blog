@@ -19,7 +19,12 @@
                <a href="/">World Wide Tech</a>
            </h1>
            <nav>
-               <a href="/dashboard">Dashboard</a>
+               {{#if loggedIn}}
+               <a href="/dashboard" class="btn">Dashboard</a>
+               <button  id="logout" class="btn">Logout</button>
+               {{else}}
+               <a href="/login" class="btn">Login</a>
+               {{/if}}
            </nav>
        </header>
 
@@ -31,4 +36,6 @@
            &copy; 2021 <a href="https://github.com/teller35" target="_blank">Teller Wetzel</a>
        </footer>
    </div>
+   <script src="/javascript/logout.js"></script>
+   </body>
 </html>
