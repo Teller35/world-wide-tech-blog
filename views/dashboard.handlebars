@@ -1,16 +1,28 @@
 <section>
-    <h2>Create New Blog</h2>
-
-    <form class="blog-form">
-        <div>
-            <label for="">Title</label>
-            <input type="text" name="blog-title" />
-        </div>
-        <div>
-            <label for="">Tell Us About It</label>
-            <input type="text" name="blog-text"/>
-        </div>
-        <button type="submit">Blog</button>
-    </form>
+  <h2>
+    Create New Blog
+  </h2>
+  <form class="blog-form">
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text form-span" id="inputGroup-sizing-default">
+        Title
+      </span>
+      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="blog-title">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text form-span" id="inputGroup-sizing-default form-span">
+        Tell Us About It
+      </span>
+      <textarea
+        class="form-control"
+        aria-label="With textarea"
+        name="blog-text"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn">
+      Blog
+    </button>
+  </form>
 </section>
+<script src="/javascript/new-blog.js"></script>
 
