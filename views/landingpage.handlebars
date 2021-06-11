@@ -1,0 +1,12 @@
+<ol>
+    {{#each blogs as |blog|}}
+    <li>
+        <div>
+            {{blog.title}}:
+        </div>
+        <div>
+            {{blog.comments.length}} comment (s)
+        </div>
+    </li>
+    {{/each}}
+</ol>
