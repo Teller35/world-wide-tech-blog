@@ -30,12 +30,8 @@
   <ol>
     {{#each blogs as |blog|}}
     <li>
-        <div>
-            {{blog.title}}:
-        </div>
-        <div>
-            {{blog.blog_text}}
-        </div>
+         {{> blog-info blog}}
+         <a href="/dashboard/edit/{{blog.id}}">Edit Blog</a>
     </li>
     {{/each}}
 </ol>

@@ -19,8 +19,8 @@ router.get("/:id", (req, res) => {
       id: req.params.id,
     },
     include: [
-      { model: Blog, attributes: ["id", "title", "created_at"] },
-      { model: Comment, attributes: ["id", "input_text", "created_at"] },
+      { model: Blog, attributes: ["id", "title", "blog_text", "created_at"]},
+      { model: Comment, attributes: ["id", "input_text", "created_at"], include: { model: Blog, attributes: ['title']}},
     ],
   })
     .then((dbUserData) => {
