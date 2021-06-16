@@ -3,7 +3,7 @@
     <h2>Edit Blog</h2>
     <form class="edit-blog">
         <div>
-            <input type="text" name="blog-title" value="{{blog.title}}" />
+            <input type="text" class="textarea" name="blog-title" value="{{blog.title}}" />
         </div>
         <div>
             <a href="/blog/{{blog.id}}">{{blog.comments.length}} {{format_plural "comment" blog.comments.length}}</a>

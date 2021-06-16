@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const sequelize = require('../../config/connection');
+const sequelize = require("../../config/connection");
 const { User, Blog, Comment } = require("../../models");
 
 router.get("/", (req, res) => {
@@ -20,8 +20,12 @@ router.get("/:id", (req, res) => {
       id: req.params.id,
     },
     include: [
-      { model: Blog, attributes: ["id", "title", "blog_text", "created_at"]},
-      { model: Comment, attributes: ["id", "input_text", "created_at"], include: { model: Blog, attributes: ['title']}},
+      { model: Blog, attributes: ["id", "title", "blog_text", "created_at"] },
+      {
+        model: Comment,
+        attributes: ["id", "input_text", "created_at"],
+        include: { model: Blog, attributes: ["title"] },
+      },
     ],
   })
     .then((dbUserData) => {

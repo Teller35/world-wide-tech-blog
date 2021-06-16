@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const sequelize = require('../config/connection');
+const sequelize = require("../config/connection");
 const { Blog, User, Comment } = require("../models");
 
 router.get("/", (req, res) => {
@@ -9,14 +9,14 @@ router.get("/", (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "input_text", 'blog_id', "user_id", "created_at"],
+        attributes: ["id", "input_text", "blog_id", "user_id", "created_at"],
         include: { model: User, attributes: ["username"] },
       },
       { model: User, attributes: ["username"] },
     ],
   })
     .then((dbBlogData) => {
-      const blogs = dbBlogData.map(blog => blog.get({ plain: true }));
+      const blogs = dbBlogData.map((blog) => blog.get({ plain: true }));
       res.render("landingpage", { blogs, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
@@ -35,7 +35,7 @@ router.get("/blog/:id", (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "input_text", 'blog_id', "user_id", "created_at"],
+        attributes: ["id", "input_text", "blog_id", "user_id", "created_at"],
         include: { model: User, attributes: ["username"] },
       },
       { model: User, attributes: ["username"] },
