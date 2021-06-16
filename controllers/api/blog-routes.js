@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "input_text", "user_id", "created_at"],
+        attributes: ["id", "input_text", 'blog_id', "user_id", "created_at"],
         include: { model: User, attributes: ["username"] },
       },
       { model: User, attributes: ["username"] },
@@ -91,7 +91,7 @@ router.put('/:id', authorization, (req, res) => {
 })
 
 router.delete("/:id", authorization, (req, res) => {
-  // if (req.session) {
+  if (req.session) {
     Blog.destroy({
       where: {
         id: req.params.id,
@@ -108,7 +108,7 @@ router.delete("/:id", authorization, (req, res) => {
         console.log(err);
         res.status(500).json(err);
       });
-  // }
+  }
 });
 
 module.exports = router;

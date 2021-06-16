@@ -86,7 +86,7 @@ router.post("/login", (req, res) => {
 
 router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
-    res.session.destroy(() => {
+    req.session.destroy(() => {
       res.status(204).end();
     });
   } else {
