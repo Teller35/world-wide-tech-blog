@@ -1,12 +1,12 @@
 <article class="blog">
-    <div>
+    <div class="title">
     {{title}}
     |
     {{blog_text}}
     </div>
-    <div>
-       Created by: {{user.username}} on {{format_date created_at}}
+    <div class="created">
+       Blogged by: {{user.username}} on {{format_date created_at}}
         |
-        <a href="/blog/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+        <a href="/blog/{{id}}">{{comments.length}} {{format_plural "Comment" comments.length}}</a>
     </div>
 </article>

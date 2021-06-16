@@ -16,7 +16,7 @@ router.post("/", authorization, (req, res) => {
   if (req.session) {
     Comment.create({
       input_text: req.body.input_text,
-      user_id: req.body.user_id,
+      user_id: req.session.user_id,
       blog_id: req.body.blog_id,
     })
       .then((dbCommData) => res.json(dbCommData))
