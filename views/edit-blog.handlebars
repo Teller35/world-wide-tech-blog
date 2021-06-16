@@ -8,8 +8,8 @@
         <div>
             <a href="/blog/{{blog.id}}">{{blog.comments.length}} {{format_plural "comment" blog.comments.length}}</a>
         </div>
-        <button type="submit">Save Blog</button>
-        <button type="button" class="delete-blog">Delete Blog</button>
+        <button type="submit" class="btn">Save Blog</button>
+        <button type="button" class="delete-blog btn">Delete Blog</button>
     </form>
 </article>
 
@@ -18,7 +18,7 @@
         <textarea name="comment-input"></textarea>
     </div>
     <div>
-        <button type="submit">Add Comment</button>
+        <button type="submit" class="btn">Add Comment</button>
     </div>
 </form>
     {{> comments blog.comments}}

@@ -20,4 +20,4 @@ async function editBlog(event) {
     }
 }
 
-document.querySelector('edit-blog').addEventListener('submit', editBlog);
+document.querySelector('.edit-blog').addEventListener('submit', editBlog);

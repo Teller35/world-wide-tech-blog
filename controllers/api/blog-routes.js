@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const sequelize = require('../../config/connection');
 const { Blog, User, Comment } = require("../../models");
 const authorization = require("../../utils/auth");
 
@@ -68,7 +69,7 @@ router.put('/:id', authorization, (req, res) => {
   Blog.update(
     {
       title: req.body.title,
-      blog_text:  req.body.blog_text
+      // blog_text:  req.body.blog_text
     },
     {
       where: {
@@ -90,13 +91,13 @@ router.put('/:id', authorization, (req, res) => {
 })
 
 router.delete("/:id", authorization, (req, res) => {
-  if (req.session) {
+  // if (req.session) {
     Blog.destroy({
       where: {
         id: req.params.id,
       },
     })
-      .then((dbBlogData) => {
+      .then(dbBlogData => {
         if (!dbBlogData) {
           res.status(404).json({ message: "No blog found with that id!" });
           return;
@@ -107,7 +108,7 @@ router.delete("/:id", authorization, (req, res) => {
         console.log(err);
         res.status(500).json(err);
       });
-  }
+  // }
 });
 
 module.exports = router;
